@@ -13,7 +13,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'admin',
       password: 'kzW3nVchgozgTdav',
       database: 'simulador-banco',
-      entities: [],
+      entities: [__dirname+'/app/*.entity{.ts,.js}'],
       synchronize: true,
     }),
     UsersModule,
