@@ -18,6 +18,7 @@ export const handler = async (event, context) => {
             .setDescription('Simulador banco API description')
             .setVersion('1.0')
             .addServer('http://localhost:3000/', 'Local environment')
+            .addServer('https://i3s181ixc8.execute-api.us-east-2.amazonaws.com/dev/', 'Local environment')
             //.addServer('https://zelk2038g2.execute-api.us-east-2.amazonaws.com/dev/', 'Development')
             //.addServer('https://ide6gvm83d.execute-api.us-east-2.amazonaws.com/prod/', 'Production')
             .build();
