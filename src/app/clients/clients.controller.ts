@@ -11,7 +11,7 @@ export class ClientsController {
   constructor(private readonly clientsService: ClientsService) { }
 
   @Post()
-  @ApiOperation({ description: "Servicio para obtener lista de proveedores por nombre o codigo" })
+  @ApiOperation({ description: "Servicio para obtener lista de clientes" })
   @ApiResponse({ status: 201, description: 'The record has been successfully created.' })
   @ApiResponse({ status: 403, description: 'Forbidden.' })
   create(@Body() createClientDto: CreateClientDto) {

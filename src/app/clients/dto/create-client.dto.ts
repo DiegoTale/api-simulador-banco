@@ -9,7 +9,7 @@ export class CreateClientDto {
     @IsString()
     @IsDefined()
     @ApiProperty({
-        example: "luis",
+        example: "luis1",
         description: "nombre",
     })
     name: string;
@@ -18,7 +18,7 @@ export class CreateClientDto {
     @IsString()
     @IsDefined()
     @ApiProperty({
-        example: "castillo",
+        example: "castillo1",
         description: "apellido",
     })
     lastname: string;
