@@ -12,7 +12,7 @@ export class CreateTransactionDto {
         example: "1",
         description: "id cuenta envia",
     })
-    account_id_sender: number;
+    product_cards_id_sender: number;
 
 
     @IsNotEmpty()
@@ -22,7 +22,7 @@ export class CreateTransactionDto {
         example: "2",
         description: "id cuenta recibe",
     })
-    account_id_reciver: number;
+    product_cards_id_reciver: number;
 
     @IsNotEmpty()
     @IsString()

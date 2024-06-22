@@ -9,10 +9,10 @@ export class Transaction {
     id: number;
 
     @Column()
-    account_id_sender: number;
+    product_cards_id_sender: number;
 
     @Column()
-    account_id_reciver: number;
+    product_cards_id_reciver: number;
 
     @Column()
     description: string;
