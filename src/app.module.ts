@@ -29,8 +29,7 @@ import { Transaction } from './app/transactions/entities/transaction.entity';
     ClientsModule,
     AccountsModule,
     ProductsCardsModule,
-    TransactionsModule,
-    TransacionDetailsModule],
+    TransactionsModule],
   controllers: [],
   providers: [],
 })

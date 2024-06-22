@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Client } from "src/app/clients/entities/client.entity";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity("accounts")
 export class Account {
@@ -15,6 +16,11 @@ export class Account {
     @Column()
     status: string;
 
+
+    @ManyToOne(type => Client, client => client.accounts)
+    @JoinColumn({ name: 'client_id' })
+    clients: Client[];
+
     @Column()
     active: string;
 
@@ -23,6 +29,7 @@ export class Account {
 
     @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
     updated: Date;
+
 
 
 }
