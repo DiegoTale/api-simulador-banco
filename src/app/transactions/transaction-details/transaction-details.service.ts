@@ -17,8 +17,12 @@ export class TransactionDetailsService {
     return await this.transactionDetailRepository.insert(transactionDetails);
   }
 
-  findAll() {
-    return this.transactionDetailRepository.find();// `This action returns all users`;
+  findAll(idTransaction : number) {
+    return this.transactionDetailRepository.find({
+      where: { 
+        transanction_id: idTransaction 
+      }
+    });// `This action returns all users`;
   }
 
   findOne(id: number) {

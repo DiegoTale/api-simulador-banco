@@ -37,11 +37,9 @@ export class TransactionsController {
       throw new HttpException('Error : Transaccion mayor que fondos en la cuenta', HttpStatus.CONFLICT);
     }
     const productCardReciver = await this.productsCardsService.findOne(createTransactionDto.product_cards_id_reciver);
-
     const createdTransaction = await this.transactionsService.create(createTransactionDto)
 
     if (createdTransaction) {
-
       const degreeAmount = await this.transaction({
         "transanction_id": createdTransaction.raw['insertId'],
         "products_cards_id": createTransactionDto.product_cards_id_sender,
@@ -49,7 +47,6 @@ export class TransactionsController {
         "amount": createTransactionDto.amount,
         "intial_amount": productCardSend.amount
       })
-
       const agreeAmount = await this.transaction({
         "transanction_id": createdTransaction.raw['insertId'],
         "products_cards_id": createTransactionDto.product_cards_id_reciver,
@@ -57,10 +54,8 @@ export class TransactionsController {
         "amount": createTransactionDto.amount,
         "intial_amount": productCardReciver.amount
       })
-
       console.log("degreeAmount", degreeAmount)
       console.log("degreeAagreeAmountmount", agreeAmount)
-
     }
     return createdTransaction;
   }

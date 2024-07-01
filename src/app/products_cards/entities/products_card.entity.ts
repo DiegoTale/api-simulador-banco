@@ -31,6 +31,9 @@ export class ProductsCard {
     amount: number;
 
     @Column()
+    limit: number;
+
+    @Column()
     active: string;
 
     @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })

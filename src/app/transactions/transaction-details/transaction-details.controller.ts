@@ -16,7 +16,7 @@ export class TransactionDetailsController {
 
   @Get()
   findAll(@Param('idTransaction') idTransaction: string ) {
-    return this.transactionDetailsService.findAll();
+    return this.transactionDetailsService.findAll(+idTransaction);
   }
 
   @Get(':id')
