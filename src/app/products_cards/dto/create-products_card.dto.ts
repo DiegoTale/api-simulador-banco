@@ -61,6 +61,14 @@ export class CreateProductsCardDto {
     })
     cvv: string;
 
+    @IsNotEmpty()
+    @IsNumber()
+    @IsDefined()
+    @ApiProperty({
+        example: 1000,
+        description: "Limite de credito",
+    })
+    limit: number;
 
     @IsNotEmpty()
     @IsNumber()
