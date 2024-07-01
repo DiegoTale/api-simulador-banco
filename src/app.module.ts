@@ -11,6 +11,7 @@ import { ProductsCardsModule } from './app/products_cards/products_cards.module'
 import { ProductsCard } from './app/products_cards/entities/products_card.entity';
 import { TransactionsModule } from './app/transactions/transactions.module';
 import { Transaction } from './app/transactions/entities/transaction.entity';
+import { TransactionDetail } from './app/transactions/transaction-details/entities/transaction-detail.entity';
  
 
 @Module({
@@ -22,7 +23,7 @@ import { Transaction } from './app/transactions/entities/transaction.entity';
       username: 'admin',
       password: 'kzW3nVchgozgTdav',
       database: 'simulador-banco',
-      entities: [User, Client, Account, ProductsCard, Transaction],
+      entities: [User, Client, Account, ProductsCard, Transaction, TransactionDetail],
       synchronize: true,
     }),
     UsersModule,
