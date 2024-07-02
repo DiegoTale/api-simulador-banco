@@ -1,7 +1,9 @@
 
 
 
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Account } from "src/app/accounts/entities/account.entity";
+import { Transaction } from "src/app/transactions/entities/transaction.entity";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity("products_card")
 export class ProductsCard {
@@ -32,6 +34,22 @@ export class ProductsCard {
 
     @Column()
     limit: number;
+
+    @ManyToOne(type => Account, accounts => accounts.products)
+    @JoinColumn({ name: 'account_id' })
+    accounts: Account[];
+
+
+
+    @OneToMany(type => Transaction, transaction => transaction.products)
+    transactions: Transaction[];
+
+
+    /*
+    @OneToMany(type => Transaction, transaction2 => transaction2.productsReciver)
+    productsReciver: Transaction[];
+
+    */
 
     @Column()
     active: string;

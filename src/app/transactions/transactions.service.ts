@@ -18,7 +18,7 @@ export class TransactionsService {
   }
 
   findAll() {
-    return this.transactionRepository.find();// `This action returns all users`;
+    return this.transactionRepository.find({ relations: ["products", "products.accounts", "products.accounts.clients"]});// `This action returns all users`;
   }
 
   findOne(id: number) {

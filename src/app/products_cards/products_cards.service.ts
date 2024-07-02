@@ -18,7 +18,7 @@ export class ProductsCardsService {
     return await this.productsCardRepository.insert(productsCard);
   }
   findAll() {
-    return this.productsCardRepository.find();// `This action returns all users`;
+    return this.productsCardRepository.find({ relations: ["accounts", "accounts.clients"]});// `This action returns all users`;
   }
 
   findOne(id: number) {

@@ -1,6 +1,7 @@
 
 
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { ProductsCard } from "src/app/products_cards/entities/products_card.entity";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity("transactions")
 export class Transaction {
@@ -22,6 +23,19 @@ export class Transaction {
 
     @Column()
     amount: number;
+
+    @ManyToOne(type => ProductsCard, productsCard => productsCard.transactions)
+    @JoinColumn({ name: 'product_cards_id_sender' })
+    products: ProductsCard[];
+
+    /*
+
+    @ManyToOne(type => ProductsCard, productsCard2 => productsCard2.productsReciver)
+    @JoinColumn({ name: 'product_cards_id_reciver' })
+    productsReciver: ProductsCard[];
+
+    */
+
 
     @Column()
     active: string;
