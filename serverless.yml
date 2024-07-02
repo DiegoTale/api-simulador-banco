@@ -1,6 +1,6 @@
 service: api-simulador-banco
 
-frameworkVersion: "3"
+frameworkVersion: "4"
 
 plugins:
   - serverless-jetpack
