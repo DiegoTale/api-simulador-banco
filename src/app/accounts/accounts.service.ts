@@ -14,12 +14,12 @@ export class AccountsService {
   ) { }
 
   async create(createAccountDto: CreateAccountDto) {
-    const client = this.accountsRepository.create(createAccountDto);//'This action adds a new user';
-    return await this.accountsRepository.insert(client);
+    const account = this.accountsRepository.create(createAccountDto);//'This action adds a new user';
+    return await this.accountsRepository.insert(account);
   }
 
   findAll() {
-    return this.accountsRepository.find();
+    return this.accountsRepository.find({ relations: ["clients"]});
   }
 
   findOne(id: number) {
