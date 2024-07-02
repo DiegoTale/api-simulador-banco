@@ -25,6 +25,7 @@ export class TransactionDetailsService {
     });// `This action returns all users`;
   }
 
+
   findOne(id: number) {
     return this.transactionDetailRepository.findOneBy({ id });
   }

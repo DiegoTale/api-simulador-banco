@@ -12,6 +12,7 @@ import { ProductsCard } from './app/products_cards/entities/products_card.entity
 import { TransactionsModule } from './app/transactions/transactions.module';
 import { Transaction } from './app/transactions/entities/transaction.entity';
 import { TransactionDetail } from './app/transactions/transaction-details/entities/transaction-detail.entity';
+import { ReportsModule } from './app/reports/reports.module';
  
 
 @Module({
@@ -30,7 +31,8 @@ import { TransactionDetail } from './app/transactions/transaction-details/entiti
     ClientsModule,
     AccountsModule,
     ProductsCardsModule,
-    TransactionsModule],
+    TransactionsModule,
+    ReportsModule],
   controllers: [],
   providers: [],
 })

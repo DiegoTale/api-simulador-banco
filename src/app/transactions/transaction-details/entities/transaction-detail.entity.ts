@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { ProductsCard } from "src/app/products_cards/entities/products_card.entity";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 @Entity("transactions_details")
 export class TransactionDetail {
 
@@ -8,8 +9,10 @@ export class TransactionDetail {
     @Column()
     transanction_id: number;
 
+
     @Column()
     products_cards_id: number;
+
 
     @Column()
     type: string;
@@ -19,6 +22,10 @@ export class TransactionDetail {
 
     @Column()
     active: string;
+
+    @ManyToOne(type => ProductsCard, productsCard => productsCard.transactionDetails)
+    @JoinColumn({ name: 'products_cards_id' })
+    productsCard: ProductsCard[];
 
     @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
     created: Date;

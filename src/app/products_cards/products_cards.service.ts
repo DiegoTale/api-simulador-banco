@@ -18,11 +18,21 @@ export class ProductsCardsService {
     return await this.productsCardRepository.insert(productsCard);
   }
   findAll() {
-    return this.productsCardRepository.find({ relations: ["accounts", "accounts.clients"]});// `This action returns all users`;
+    return this.productsCardRepository.find({ relations: ["accounts", "accounts.clients"] });// `This action returns all users`;
   }
+
 
   findOne(id: number) {
     return this.productsCardRepository.findOneBy({ id });
+  }
+
+  findOneReport(id: number) {
+    return this.productsCardRepository.find({
+      where: {
+        id: id
+      },
+      relations: ["accounts", "accounts.clients", 'transactionDetails']
+    });// `This action returns all users`;
   }
 
   update(id: number, updateProductsCardDto: UpdateProductsCardDto) {

@@ -3,6 +3,7 @@
 
 import { Account } from "src/app/accounts/entities/account.entity";
 import { Transaction } from "src/app/transactions/entities/transaction.entity";
+import { TransactionDetail } from "src/app/transactions/transaction-details/entities/transaction-detail.entity";
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity("products_card")
@@ -45,11 +46,8 @@ export class ProductsCard {
     transactions: Transaction[];
 
 
-    /*
-    @OneToMany(type => Transaction, transaction2 => transaction2.productsReciver)
-    productsReciver: Transaction[];
-
-    */
+    @OneToMany(type => TransactionDetail, transactionDetails => transactionDetails.productsCard)
+    transactionDetails: TransactionDetail[];
 
     @Column()
     active: string;

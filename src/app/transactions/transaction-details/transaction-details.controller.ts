@@ -33,4 +33,6 @@ export class TransactionDetailsController {
   remove(@Param('idTransaction') idTransaction: string, @Param('id') id: string) {
     return this.transactionDetailsService.remove(+id);
   }
+
+  
 }
