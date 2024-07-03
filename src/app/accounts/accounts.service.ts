@@ -19,7 +19,7 @@ export class AccountsService {
   }
 
   findAll() {
-    return this.accountsRepository.find({ relations: ["clients"]});
+    return this.accountsRepository.find({ relations: ["clients", "products"]});
   }
 
   findOne(id: number) {
