@@ -44,15 +44,15 @@ export class TransactionsController {
         "transanction_id": createdTransaction.raw['insertId'],
         "products_cards_id": createTransactionDto.product_cards_id_sender,
         "type": "cargo",
-        "amount": createTransactionDto.amount,
-        "intial_amount": productCardSend.amount
+        "amount": +createTransactionDto.amount,
+        "intial_amount": +productCardSend.amount
       })
       const agreeAmount = await this.transaction({
         "transanction_id": createdTransaction.raw['insertId'],
-        "products_cards_id": createTransactionDto.product_cards_id_reciver,
+        "products_cards_id": createTransactionDto?.product_cards_id_reciver,
         "type": "abono",
-        "amount": createTransactionDto.amount,
-        "intial_amount": productCardReciver.amount
+        "amount": +createTransactionDto?.amount,
+        "intial_amount": +productCardReciver?.amount
       })
       console.log("degreeAmount", degreeAmount)
       console.log("degreeAagreeAmountmount", agreeAmount)
@@ -90,9 +90,9 @@ export class TransactionsController {
     });
     let finalAmount = 0;
     if (transactionData.type == "cargo") {
-      finalAmount = +transactionData.intial_amount - transactionData.amount
+      finalAmount = parseInt(transactionData.intial_amount) - parseInt(transactionData.amount)
     } else {
-      finalAmount = +transactionData.intial_amount + transactionData.amount
+      finalAmount = parseInt(transactionData.intial_amount) + parseInt(transactionData.amount)
     }
     const productCardUpdate = await this.productsCardsService.update(transactionData.products_cards_id, { amount: finalAmount })
     return { transactionDetails, productCardUpdate }
